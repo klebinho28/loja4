@@ -1,8 +1,10 @@
 <div class="container mt-3">
   <h2>Cadastre-se</h2>
-  <div *ngIf="mensagem" class="alert alert-info mt-3">
+<p *ngIf="mensagem" class="alert alert-success mt-2">
   {{ mensagem }}
-</div>
+</p>
+
+
   <form>
     <div class="form-group">
       <label for="nome">Nome</label>

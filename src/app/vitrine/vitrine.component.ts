@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Produto } from '../model/produto';
 import { Item } from '../model/item';
+import { Router } from '@angular/router'; // IMPORTANTE
 
 @Component({
   selector: 'app-vitrine',
@@ -11,6 +12,8 @@ import { Item } from '../model/item';
   styleUrl: './vitrine.component.css'
 })
 export class VitrineComponent {
+  constructor(private router: Router) {} // INJETANDO O ROUTER
+
   public lista: Produto[] = 
   [{codigo:1,nome:"Sapato Zara",valor:300, descritivo:"",
     valorPromo:90, estoque:110, destaque:1},
@@ -33,21 +36,25 @@ export class VitrineComponent {
     novo.valor = produto.valor;
     novo.qtd = 1;
     novo.total = produto.valor; 
-    let lista : Item[] = [];
+
+    let lista: Item[] = [];
     let json = localStorage.getItem("cesta");
+
     if(json==null){
       lista.push(novo);  
     } else {
       lista = JSON.parse(json);
       lista.push(novo);
     }  
-    localStorage.setItem("cesta",JSON.stringify(lista));
-    window.location.href="./cesta";
+
+    localStorage.setItem("cesta", JSON.stringify(lista));
+
+    // Redirecionar usando o roteador Angular
+    this.router.navigate(['/cesta']);
   }
+
   public detalhe(produto: Produto){  
-    localStorage.setItem("produto",JSON.stringify(produto));
-    window.location.href="./detalhe";
+    localStorage.setItem("produto", JSON.stringify(produto));
+    this.router.navigate(['/detalhe']);
   }
 }
-
-

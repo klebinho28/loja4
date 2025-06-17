@@ -7,28 +7,29 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './cesta.component.html',
-  styleUrl: './cesta.component.css'
+  styleUrls: ['./cesta.component.css']
 })
 export class CestaComponent {
   public lista: Item[] = [];
-  public mensagem: String = "";
+  public mensagem: string = "";
   public totalCesta: number = 0;
 
   constructor(){
-    let json = localStorage.getItem("cesta");
-    if(json==null){
-      this.mensagem = "sua cesta de compras esta vazia !!!";
-    } 
-    else {
+    const json = localStorage.getItem("cesta");
+    if(json == null){
+      this.mensagem = "sua cesta de compras está vazia !!!";
+    } else {
       this.lista = JSON.parse(json);
       for(let item of this.lista){
-        this.totalCesta = this.totalCesta + item.total;
+        this.totalCesta += item.total;
       }
     }
   }
 
   limpar(){
     this.lista = [];
+    this.totalCesta = 0;
+    this.mensagem = "sua cesta de compras está vazia !!!";
     localStorage.removeItem("cesta");
   }
 }
