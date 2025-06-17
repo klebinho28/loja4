@@ -1,0 +1,39 @@
+<div class="container mt-3">
+  <h2>Cadastre-se</h2>
+  <div *ngIf="mensagem" class="alert alert-info mt-3">
+  {{ mensagem }}
+</div>
+  <form>
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" [(ngModel)]="obj.nome">
+    </div>
+
+    <div class="form-group">
+      <label for="sobrenome">Sobrenome</label>
+      <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" [(ngModel)]="obj.sobrenome">
+    </div>
+
+    <div class="form-group">
+      <label for="telefone">Telefone</label>
+      <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite seu telefone" [(ngModel)]="obj.telefone">
+    </div>
+
+    <div class="form-group">
+      <label for="endereco">Endereço</label>
+      <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite seu endereço" [(ngModel)]="obj.endereco">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email" [(ngModel)]="obj.email">
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" [(ngModel)]="obj.senha">
+    </div>
+
+    <button (click)="gravar()" class="btn btn-success">Gravar</button>
+  </form>
+</div>

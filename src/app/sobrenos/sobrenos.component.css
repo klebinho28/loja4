@@ -1,0 +1,53 @@
+/* Estilos dos cards */
+.card {
+    width: 300px; /* Ajuste a largura como desejar */
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+/* Efeito hover */
+.hover-effect {
+    display: none; /* Oculta o efeito hover inicialmente */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo do efeito hover */
+    color: white; /* Cor do texto do efeito hover */
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.card:hover .hover-effect {
+    display: block; /* Exibe o efeito hover ao passar o mouse */
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 600px) {
+    .cards {
+        flex-direction: column; /* Cards em coluna para telas menores */
+    }
+
+    .card {
+        width: 100%; /* Cards ocupam a largura total da tela */
+    }
+}
+
+h2 {
+    text-align: center;
+}

@@ -1,0 +1,8 @@
+<h2>{{obj.nome}}</h2>
+<p>{{obj.descritivo}}</p>
+<img src="./assets/tenis{{obj.codigo}}.png"
+    width="300px"> <br>
+<div class="valor">R$ {{obj.valor}}</div>
+<div class="promo" *ngIf="obj.valorPromo>0">
+    Por R$ {{obj.valorPromo}}</div>
+<button *ngIf="obj.estoque>0">Comprar</button>

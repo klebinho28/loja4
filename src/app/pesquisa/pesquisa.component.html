@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <h2>Pesquisar por sapatos</h2>
+    <p>Aqui você encontra os melhores Sapatos para todas as ocasiões.</p>
+
+    <!-- input com two-way binding e evento keyup para filtro instantâneo -->
+    <input type="text" [(ngModel)]="filtro" (keyup)="filtrar()" placeholder="Digite o nome do produto..." class="form-control mb-2" />
+    <button class="btn btn-primary mb-3" (click)="filtrar()">Pesquisar</button>
+  </div>
+</div>
+
+<h3 *ngIf="listaFiltrada.length <= 0">
+  Não existem produtos cadastrados ou correspondentes
+</h3>
+
+<div class="row">
+  <div *ngFor="let item of listaFiltrada" class="col-sm-3">
+    <div class="card">
+      <img class="card-img-top" src="./assets/tenis{{item.codigo}}.png" alt="Card image" />
+      <div class="card-body">
+        <h4 class="card-title">{{item.nome}}</h4>
+        <p class="card-text">R$ {{item.valor}}</p>
+        <button *ngIf="item.estoque > 0" class="btn btn-primary" (click)="comprar(item)">
+          Comprar
+        </button>
+      </div>
+    </div>
+    <br />
+  </div>
+</div>
